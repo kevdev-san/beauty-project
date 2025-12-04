@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KERACAO STUDIO</title>
+    <link rel="icon" type="image/png" href="../img/k.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .background-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .background-image {
+            width: 100%;
+            border-radius: 30px;
+            opacity: 0.3;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .confirmation-card {
+            position: relative;
+            background: rgba(10, 10, 10, 0.95);
+            border: 2px solid #2AA6B6;
+            border-radius: 30px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(42, 166, 182, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .check-icon-container {
+            margin-bottom: 30px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .check-png-icono {
+            width: 100px;
+            height: 100px;
+            filter: drop-shadow(0 0 20px rgba(42, 166, 182, 0.6));
+        }
+
+        .title {
+            font-size: 32px;
+            color: #2AA6B6;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #999;
+            margin-bottom: 40px;
+        }
+
+        .details-container {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border-bottom: 1px solid #222;
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-item:hover {
+            background: rgba(42, 166, 182, 0.1);
+            border-radius: 10px;
+        }
+
+        .detail-svg-icon {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+
+        .detail-svg-icon path {
+            fill: #2AA6B6;
+        }
+
+        .text-group {
+            flex: 1;
+            text-align: left;
+        }
+
+        .label {
+            display: block;
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            display: block;
+            font-size: 16px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .continue-button {
+            background: linear-gradient(135deg, #1A8A97 0%, #2AA6B6 100%);
+            color: white;
+            border: none;
+            padding: 15px 50px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .continue-button:hover {
+            background: linear-gradient(135deg, #2AA6B6 0%, #35C5D7 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(42, 166, 182, 0.4);
+        }
+
+        .continue-button:active {
+            transform: translateY(0);
+        }
+
+        /* Loading state */
+        .loading {
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .confirmation-card {
+                padding: 40px 25px;
+            }
+
+            .title {
+                font-size: 26px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .details-container {
+                padding: 20px;
+            }
+
+            .detail-item {
+                padding: 15px 10px;
+                gap: 15px;
+            }
+
+            .detail-svg-icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            .value {
+                font-size: 14px;
+            }
+
+            .check-png-icono {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .confirmation-card {
+                padding: 30px 20px;
+            }
+
+            .title {
+                font-size: 22px;
+            }
+
+            .detail-item {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <img src="../img/fondocitaHombre.png" alt="fondo-cita" class="background-image">
+        <div class="confirmation-card">
+            
+            <div class="check-icon-container">
+                <img src="../img/palomitahombre.png" alt="palomita" class="check-png-icono">
+            </div>
+            
+            <h2 class="title">¡Cita confirmada!</h2>
+            <p class="subtitle">Tu cita ha sido agendada exitosamente</p>
+
+            <div class="details-container">
+    
+                <div class="detail-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="detail-svg-icon">
+                        <path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/>
+                    </svg>
+                    <div class="text-group">
+                        <span class="label">Fecha</span>
+                        <span class="value" id="fecha-cita">Cargando...</span>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="detail-svg-icon">
+                        <path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/>
+                    </svg>
+                    <div class="text-group">
+                        <span class="label">Hora</span>
+                        <span class="value" id="hora-cita">--:--</span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="detail-svg-icon">
+                        <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/>
+                    </svg>
+                    <div class="text-group">
+                        <span class="label">Servicio(s)</span>
+                        <span class="value" id="servicio-cita">Cargando...</span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="detail-svg-icon">
+                        <path d="M640-40q-17 0-28.5-11.5T600-80q0-17 11.5-28.5T640-120h120v-40H640q-17 0-28.5-11.5T600-200q0-17 11.5-28.5T640-240h120v-40H640q-17 0-28.5-11.5T600-320q0-17 11.5-28.5T640-360h120v-40H640q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480h120v-40H640q-17 0-28.5-11.5T600-560q0-17 11.5-28.5T640-600h120v-40H640q-17 0-28.5-11.5T600-680q0-17 11.5-28.5T640-720h160q33 0 56.5 23.5T880-640v520q0 33-23.5 56.5T800-40H640ZM320-360q66 0 113-65t47-155q0-90-47-155t-113-65q-66 0-113 65t-47 155q0 90 47 155t113 65Zm0 320q-48 0-79-35.5T217-159l16-141q-68-33-110.5-108.5T80-580q0-125 70-212.5T320-880q100 0 170 87.5T560-580q0 96-42.5 171.5T407-300l16 141q7 48-24 83.5T320-40Z"/>
+                    </svg>
+                    <div class="text-group">
+                        <span class="label">Atenderá</span>
+                        <span class="value" id="empleado-cita">Cargando...</span>
+                    </div>
+                </div>
+                
+            </div>
+
+            <button class="continue-button" onclick="window.location.href='PagPrincipalHombre.html'">Continuar</button>
+            
+        </div>
+    </div>
+
+    <script>
+        // Configuración de la API
+        const API_BASE_URL = 'http://127.0.0.1:8000/api';
+
+        // Función para obtener headers con token
+        function getAuthHeaders() {
+            const token = localStorage.getItem('token');
+            return {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'X-Requested-With': 'XMLHttpRequest'
+            };
+        }
+
+        // Formatear fecha en español
+        function formatearFecha(fechaString) {
+            const fecha = new Date(fechaString + 'T00:00:00');
+            const opciones = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            
+            const fechaFormateada = fecha.toLocaleDateString('es-ES', opciones);
+            return fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+        }
+
+        // Formatear hora
+        function formatearHora(hora) {
+            return hora;
+        }
+
+        // Cargar información de la cita
+        async function cargarInformacionCita() {
+            try {
+                const citaGuardada = sessionStorage.getItem('last_appointment');
+                
+                if (citaGuardada) {
+                    const cita = JSON.parse(citaGuardada);
+                    await mostrarInformacionCita(cita);
+                } else {
+                    mostrarError('No se encontró información de la cita');
+                }
+            } catch (error) {
+                console.error('Error al cargar la cita:', error);
+                mostrarError('Error al cargar la información de la cita');
+            }
+        }
+
+        // Mostrar información de la cita en la página
+        async function mostrarInformacionCita(cita) {
+            try {
+                // Mostrar fecha
+                document.getElementById('fecha-cita').textContent = formatearFecha(cita.fecha);
+                
+                // Mostrar hora
+                document.getElementById('hora-cita').textContent = formatearHora(cita.hora);
+
+                // Cargar información del empleado
+                if (cita.id_empleado || cita.empleado) {
+                    const empleadoId = cita.id_empleado || cita.empleado.id_empleado;
+                    const responseEmpleado = await fetch(`${API_BASE_URL}/empleados/${empleadoId}`, {
+                        headers: getAuthHeaders()
+                    });
+                    
+                    if (responseEmpleado.ok) {
+                        const empleado = await responseEmpleado.json();
+                        document.getElementById('empleado-cita').textContent = empleado.nombre;
+                    } else if (cita.empleado) {
+                        document.getElementById('empleado-cita').textContent = cita.empleado.nombre;
+                    }
+                }
+
+                // Cargar servicios
+                if (cita.servicios && cita.servicios.length > 0) {
+                    const nombresServicios = cita.servicios.map(s => s.nombre).join(', ');
+                    document.getElementById('servicio-cita').textContent = nombresServicios;
+                } else {
+                    document.getElementById('servicio-cita').textContent = 'Servicio agendado';
+                }
+
+            } catch (error) {
+                console.error('Error al mostrar información:', error);
+                mostrarError('Error al mostrar la información');
+            }
+        }
+
+        // Mostrar mensaje de error
+        function mostrarError(mensaje) {
+            document.getElementById('fecha-cita').textContent = mensaje;
+            document.getElementById('hora-cita').textContent = '--:--';
+            document.getElementById('servicio-cita').textContent = mensaje;
+            document.getElementById('empleado-cita').textContent = mensaje;
+        }
+
+        // Cargar información al cargar la página
+        window.addEventListener('DOMContentLoaded', cargarInformacionCita);
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+/* Estilo general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*esto es para que el tamaño sea de acuerdo a como realmente lo quiero en lugar de sumarse lo demas del padding o eso*/
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #FFB3D9 0%, #FF8EC7 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; /*tamaño minimo respecto al viewport*/
+    margin: 0;
+    padding: 20px;
+}
+
+#Keracao {
+    font-family: Heebo, Arial, sans-serif;
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+/* Contenedor principal */
+#container {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    max-width: 450px;
+    padding: 50px 40px;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Icono de usuario */
+.icono {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+/* Título */
+#container h2 {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+/* Mensaje de bienvenida */
+.mensaje {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.mensaje p {
+    font-size: 14px;
+    color: #000000;
+    line-height: 1.5;
+}
+
+.mensaje img {
+    width: 24px;
+    height: auto;
+    margin-top: 2px;
+}
+
+/* Formulario */
+form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    font-weight: normal;
+    color: #EF73B9;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #FF69B4;
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: #999;
+}
+
+/* Botón */
+button {
+    width: 100%;
+    background: linear-gradient(to right, #FF69B4, #FF85C1);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #f458b0;
+}
+
+/* Enlace de registro */
+.registro {
+    color: #000000;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.registro a {
+    color: #000000;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.registro a:hover {
+    text-decoration: underline;
+}

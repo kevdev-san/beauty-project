@@ -1,0 +1,856 @@
+/* 1. Importar la fuente Hedvig Letters Serif */
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap');
+
+/* 2. Variables de Color */
+:root {
+    --color-primary-pink: #EF73B9;     
+    --color-background-header: #FFAADA; 
+    
+    --color-text-dark: #000; 
+    --color-text-light: #fff;
+    --color-font: 'Hedvig Letters Serif', serif;
+    --font-satisfaction: 'Konkhmer Sleokchher', serif;
+}
+
+/* 3. Reset y Aplicación de Tipografía */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--color-font); 
+    color: var(--color-text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+
+.main-header {
+    background-color: var(--color-background-header); /* Fondo #FFAADA */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px; 
+    margin: 0 auto;
+    padding: 15px 30px;
+    height: 80px; 
+}
+
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 170px; 
+    height: auto;
+}
+
+/* --- Enlaces Centrales --- */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    font-size: 1.1em;
+    font-weight: 590;
+}
+
+.nav-links a {
+    padding: 5px 0;
+    color: var(--color-text-dark);
+}
+
+
+/* --- Acciones de Usuario --- */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Estilo general de los botones */
+.btn-primary, .btn-secondary {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 15px; 
+    font-weight: 300;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em;
+}
+
+/* Botón Iniciar Sesión */
+.btn-primary {
+    background-color: var(--color-primary-pink); /* #EF73B9 */
+    color: var(--color-text-light); 
+}
+
+/* Botón Hombre ícono de tijeras */
+.btn-secondary {
+    background-color: #EF73B9; 
+    color: var(--color-text-dark); 
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 8px 20px;
+}
+
+/* Estilo para el ícono de tijeras  */
+.icon-scissors {
+    font-size: 1.2em;
+}
+
+.inscribir-curso-section {
+    padding: 80px 0;
+    background-color: #ffffff; 
+}
+
+/* Contenedor central */
+.container {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 80px;
+}
+
+/* --- Encabezado de la Sección --- */
+.section-header {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.2em; 
+    color: var(--color-primary-pink);
+    margin-bottom: 20px;
+    margin-top: -30px;
+    font-family: var(--font-satisfaction);
+    font-weight: 100;
+
+
+}
+
+.section-header p {
+    font-size: 1.3em;
+    color: var(--color-text-dark);
+}
+
+
+.slider-container {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    max-width: 1500px; 
+    margin: 0 auto;
+    padding: 20px 0; 
+    position: relative;
+    margin-top: -30px;
+    margin-bottom: -15px;
+}
+
+/* Estilo para las flechas de navegación */
+.slider-arrow {
+    background: none;
+    border: none;
+    color: var(--color-text-dark); 
+    cursor: pointer;
+    font-size: 3em; 
+    padding: 0 25px;
+    z-index: 10;
+    transition: color 0.3s;
+}
+
+.slider-arrow:hover {
+    color: var(--color-primary-pink); 
+}
+
+
+.slider-content-wrapper {
+    flex-grow: 1;
+    max-width: 800px; 
+}
+
+
+
+.slide-card {
+    display: flex;
+    background: var(--color-background-header);
+    border-radius: 5px; 
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+/* --- Contenedor de la Imagen --- */
+.card-image-container {
+    width: 40%;
+    height: 350px; 
+    overflow: visible;
+    position: relative;
+    background-color:var(--color-background-header); 
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover; 
+    display: block;
+    border-radius: 5px;
+    transform: translate(25px, 20px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    margin-left: 30px;
+}
+
+.card-info-container {
+    width: 60%;
+    padding: 40px 40px 40px 60px; 
+    color: var(--color-text-dark); 
+    text-align: left;
+}
+
+.card-title {
+    font-size: 1.6em;
+    font-weight: 300;
+    font-family: var(--font-satisfaction);
+    color: var(--color-text-dark);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.card-details {
+    list-style: none; 
+    padding-left: 0;
+}
+
+.card-details li {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    line-height: 1;
+    position: relative;
+    padding-left: 10px; 
+    color:var(--color-text-dark); 
+    font-weight: 500;
+    text-align: center;
+}
+
+
+
+/* --- Enlace "Conoce la información completa" y Flecha --- */
+.inscribir-curso-section > .container > p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 50px;
+    color: #444;
+}
+
+.inscribir-curso-section > .container > .arrow-down {
+    text-align: center;
+    font-size: 3em;
+    color: var(--color-text-dark);
+    margin-top: 10px;
+}
+
+
+
+/* 1. Define la animación: mueve el elemento 10px hacia arriba y abajo */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Posición inicial */
+    }
+    50% {
+        transform: translateY(-10px); /* Sube 10 píxeles */
+    }
+}
+
+/* 2. Aplica la animación a la flecha */
+.arrow-down {
+    text-align: center;
+    font-size: 3em;
+    color: var(--color-text-dark);
+    margin-top: 10px;
+    
+    /* Configuración de la animación */
+    animation: bounce 1.5s infinite; /* Nombre, duración y repetición infinita */
+    display: inline-block; /* Necesario para que la transformación funcione correctamente */
+}
+
+.info-link-text {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 0px;
+    color:var(--color-text-dark);
+}
+
+.inscribir-curso-section .container > p:last-of-type,
+.inscribir-curso-section .container > .arrow-down {
+    display: block;
+    width: 100%;
+}
+
+
+.curso-detalles-section {
+    padding: 100px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.detalles-titulo {
+    font-weight: 30;
+    margin-top: -90px;
+    color: var(--color-text-dark);
+    margin-bottom: 80px;
+    font-family: var(--font-satisfaction);
+}
+
+.detalles-titulo .star {
+    font-size: 1.2em; 
+    margin-left: 10px;
+}
+
+/* --- Cuadrícula de Tarjetas --- */
+.cards-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espacio entre las tarjetas */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.info-card {
+    flex: 1; 
+    max-width: 350px;
+    padding: 20px;
+    
+  
+    border: 5px solid var(--color-primary-pink); 
+    border-radius: 20px; 
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-subtitle {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    margin-bottom: 9px;
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+    text-align: center;
+}
+
+/* --- Estilos Específicos de las Tarjetas --- */
+
+/* 1. Impartido por */
+.instructor-img {
+    width: 90px;
+    height: 120px;
+    object-fit: cover;
+    border-radius:0%; /* Imagen redonda */
+    margin-bottom: 30px;
+}
+
+.instructor-name {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--color-text-dark);
+}
+
+.instructor-title {
+    font-size: 1em;
+    margin-top: 13px;
+    color: #555;
+}
+
+/* 2. Fecha y Duración */
+.clock-icon-png {
+    width: 90px;  
+    height: 90px; 
+    margin-bottom: px; 
+    object-fit: contain; 
+    margin-top: 20px;
+}
+
+.duration {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-text-dark);
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.dates {
+    font-size: 1em;
+    color: var(--color-text-dark);
+    line-height: 1.4;
+}
+
+/* 3. Costo */
+.icon-money svg {
+    width: 90px;  
+    height: 90px; 
+    margin-bottom: px; 
+    object-fit: contain; 
+    margin-top: 20px;
+}
+
+.price {
+    font-size: 1.7em;
+    font-weight: bold;
+    color:var(--color-text-dark); 
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    font-family: var(--color-font);
+}
+
+.include-details {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.4;
+}
+
+
+.tecnicas-section {
+    padding: 60px 0 100px 0; 
+    background-color: #fff;
+    text-align: center;
+}
+
+.tecnicas-box {
+  
+    background-color: var(--color-background-header); 
+    
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 30px 40px; 
+    
+    border-radius: 40px; /* Bordes muy redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Configuración para que el título y las etiquetas se organicen bien */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinear contenido a la izquierda */
+}
+
+/* --- Título "Técnicas que aprenderás:" --- */
+.tecnicas-titulo {
+    font-size: 1.5em;
+    font-weight: 100; 
+    color: var(--color-text-dark);
+    margin-bottom: 25px;
+    padding-left: 10px;
+    font-family: var(--font-satisfaction);
+}
+
+/* --- Contenedor de las Etiquetas --- */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las etiquetas salten de línea en móvil */
+    gap: 15px; /* Espacio entre las etiquetas */
+    padding-left: 10px;
+}
+
+/* --- Estilo de cada Etiqueta (Tag) --- */
+.tech-tag {
+    background-color: var(--color-text-light); /* Fondo blanco */
+    color: var(--color-text-dark); /* Texto negro */
+    
+    padding: 12px 25px; /* Relleno amplio para el efecto de píldora */
+    
+    border: none;
+    border-radius: 50px; 
+    
+    font-size: 1.1em;
+    font-weight: 500;
+    
+    cursor: default;
+    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
+}
+
+
+.materiales-section {
+    padding: 80px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.materiales-titulo {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--color-text-dark);
+    margin-bottom: 40px;
+    margin-top: -50px;
+}
+
+.materiales-box-wrapper {
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 50px 20px; 
+    
+    border: 5px solid var(--color-primary-pink); 
+    border-radius: 15px; 
+}
+
+
+.materiales-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; 
+}
+
+.materiales-columna {
+    flex: 1; 
+    text-align: left;
+    padding: 0 20px;
+}
+
+
+.materiales-columna.incluidos {
+    border-right: 2px solid var(--color-primary-pink); 
+}
+
+.columna-titulo {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    margin-bottom: 35px;
+    text-align: center;
+    
+}
+
+
+.materiales-lista {
+    list-style: none; 
+    padding: 0;
+}
+
+.list-item {
+    font-size: 1.15em;
+    color: var(--color-text-dark);
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 35px; 
+}
+
+.list-item::before {
+    content: '✓'; 
+    
+    position: absolute;
+    left: 0;
+    top: 0;
+    
+    font-size: 1.2em; 
+    font-weight: bold;
+    color: #4CAF50; 
+    
+
+}
+
+
+.contenido-oculto {
+    display: none; 
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.contenido-visible {
+    display: block;
+    opacity: 1;
+}
+
+.inscripcion-llamada {
+    
+    padding: 30px 0 80px 0;
+    text-align: center;
+    background-color: #fff;
+    display: flex; /* Para centrar el botón */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inscripcion-btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Espacio entre el botón y la flecha */
+}
+
+/* --- Estilo del Botón --- */
+.btn-inscribirme {
+    
+    background-color: var(--color-primary-pink); 
+    color: var(--color-text-light); 
+    
+    padding: 15px 40px;
+    border: none;
+    border-radius: 15px; 
+    
+    font-size: 1.5em; 
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    
+   
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-inscribirme:hover {
+    background-color: #E269AA; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); 
+}
+
+
+.arrow-down-inscripcion {
+    text-align: center;
+    font-size: 3em;
+    color: var(--color-text-dark);
+    margin-top: 70px;
+    
+
+    animation: bounce 1.5s infinite; 
+    display: inline-block; 
+}
+
+
+.seleccion-inscripcion {
+    padding: 60px 0 100px 0;
+    text-align: center;
+}
+
+
+.paso-container {
+    margin-bottom: 60px;
+}
+
+.paso-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.paso-numero {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+    background-color: var(--color-primary-pink);
+    color: var(--color-text-light);
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-right: 20px;
+    margin-top: -18px;
+}
+
+.paso-texto {
+    text-align: left;
+}
+
+.paso-titulo {
+    font-size: 1.5em;
+    font-weight: 100;
+    margin-bottom: 5px;
+    color: var(--color-text-dark);
+    font-family: var(--font-satisfaction);
+}
+
+.paso-descripcion {
+    font-size: 1em;
+    color: var(--color-text-dark);
+    margin-bottom: 30px;
+}
+
+.opciones-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.opcion-card {
+    flex: 1;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    padding: 30px 100px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    
+    input[type="radio"] {
+        display: none;
+    }
+}
+
+.opcion-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.opcion-principal {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+
+.opcion-secundaria {
+    font-size: 1.1em;
+    color: var(--color-text-dark);
+}
+
+.turno-card {
+    background-color: var(--color-background-header); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.pago-opciones {
+    flex-direction: column; 
+    max-width: 600px; 
+}
+
+.pago-card {
+    background-color: #fff;
+    border: 2px solid var(--color-background-header); 
+    padding: 20px 30px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.pago-card input:checked ~ .radio-dot {
+    background-color: var(--color-primary-pink); 
+    border-color: var(--color-primary-pink);
+}
+
+.pago-card input:checked {
+    & + .radio-dot {
+        background-color: var(--color-primary-pink);
+        border-color: var(--color-primary-pink);
+        &:after {
+            background-color: var(--color-text-light);
+        }
+    }
+   
+    &::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border: 2px solid var(--color-primary-pink);
+        border-radius: 20px;
+        z-index: 1;
+    }
+}
+
+.radio-dot {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--color-background-header);
+    background-color: #fff;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.pago-card .opcion-principal {
+    margin-bottom: 12px;
+    font-size: 1.2em;
+    text-align: left;
+    
+}
+
+.pago-card .opcion-secundaria {
+    font-size: 0.95em;
+    color:var(--color-text-dark);
+}
+
+/* --- Botón Confirmar --- */
+.btn-confirmar {
+
+    background-color: var(--color-primary-pink); 
+    color: var(--color-text-light); 
+    padding: 15px 70px;
+    border: none;
+    border-radius: 15px; 
+    font-size: 1.5em;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    margin-top: 50px;
+    font-family: var(--color-font);
+}
+
+/* --- ESTILOS DEL SLIDER CON DESLIZAMIENTO HORIZONTAL --- */
+
+/* 1. Contenedor que permite el desplazamiento */
+.slider-content-wrapper {
+    flex-grow: 1;
+    max-width: 800px; 
+    /* Configuración clave para el carrusel */
+    overflow: hidden; /* Oculta los slides que están fuera de vista */
+}
+
+/* 2. Contenedor interno que se va a mover */
+.slides-track {
+    display: flex; /* Coloca todos los slides en línea */
+    width: 200%; /* El 200% para 2 slides (100% por slide) */
+    transition: transform 0.5s ease-in-out; /* Animación de desplazamiento (0.5 segundos) */
+}
+
+/* 3. Estilo de cada slide dentro del carrusel */
+.slider-slide {
+    flex-shrink: 0; /* Previene que los slides se encojan */
+    width: 50%; /* Cada slide ocupa la mitad del 200% (es decir, el 100% de la vista) */
+    display: block !important; /* Asegura que no se oculte con el display: none */
+}
+
+/* 4. Mantiene el ancho y posición del contenido interno (tarjeta) */
+.slide-card {
+    width: 100%;
+}

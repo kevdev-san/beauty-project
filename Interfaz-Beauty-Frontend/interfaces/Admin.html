@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KERACAO STUDIO | Panel de Control</title>
+    <link rel="stylesheet" href="../css/styleAdmin.css"> 
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../img/logokeracao.png" alt="Keracao Studio Logo" class="logo-img">
+            </div>
+            
+            <div class="user-profile">
+                <div class="avatar">AD</div>
+                <div class="user-info">
+                    <p class="name">Admin</p>
+                    <p class="email">admin@keracaosalon.com</p>
+                </div>
+            </div>
+            </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Panel de Control</h1>
+                <p class="subtitle">Resumen general del sistema</p>
+            </header>
+
+            <section class="metrics-grid">
+                
+                <div class="card metric-card">
+                    <div class="card-header">
+                        <h2>Clientes Activos</h2>
+                        <span class="icon-person icon-box">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        </span>
+                    </div>
+                    <p class="value-large">1,284</p>
+                    <p class="comparison comparison-negative">
+                        <span class="arrow-down">↓</span> -12.3% vs mes anterior
+                    </p>
+                </div>
+
+                <div class="card metric-card">
+                    <div class="card-header">
+                        <h2>Citas Hoy</h2>
+                        <span class="icon-calendar icon-box">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM5 7V6h14v1H5z"/></svg>
+                        </span>
+                    </div>
+                    <p class="value-large">42</p>
+                    <p class="details">8 pendientes, 34 completadas</p>
+                </div>
+
+                <div class="card metric-card">
+                    <div class="card-header">
+                        <h2>Ingresos del Mes</h2>
+                        <span class="icon-money icon-box">
+                             <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 14h-2v-4H8V8h3V4h2v4h3v4h-3v4z"/></svg>
+                        </span>
+                    </div>
+                    <p class="value-large">$67,000</p>
+                    <p class="comparison comparison-negative">
+                        <span class="arrow-down">↑</span> +21.8% vs mes anterior
+                    </p>
+                </div>
+
+                <div class="card metric-card">
+                    <div class="card-header">
+                        <h2>Satisfacción</h2>
+                        <span class="icon-star icon-box">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </span>
+                    </div>
+                    <p class="value-large satisfaction-score">4.8/5.0</p>
+                    <p class="details">Basado en 156 reseñas</p>
+                </div>
+            </section>
+
+            <section class="charts-row">
+                
+                <div class="card chart-card monthly-income">
+                    <h2>Ingresos Mensuales</h2>
+                    <div class="chart-placeholder">
+                        <div class="y-axis-labels-area">
+                            <p>20000</p>
+                            <p>40000</p>
+                            <p>60000</p>
+                            <p>80000</p>
+                        </div>
+                        <div class="chart-area-mock">
+                            </div>
+                        <div class="x-axis-labels">
+                            <span class="mes-ene">Ene</span>
+                            <span class="mes-feb">Feb</span>
+                            <span class="mes-mar">Mar</span>
+                            <span class="mes-abr">Abr</span>
+                            <span class="mes-mayo">Mayo</span> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card chart-card service-income">
+                    <h2>Ingresos por Servicio</h2>
+                    <div class="chart-placeholder bar-chart">
+                        <div class="bar-y-axis">
+                            <p>5500</p>
+                            <p>11000</p>
+                            <p>16500</p>
+                            <p>22,000</p>
+                            <p>0</p>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar" style="height: 65%;"></div> <div class="bar" style="height: 100%;"></div><div class="bar" style="height: 35%;"></div> <div class="bar" style="height: 50%;"></div> </div>
+                        <div class="x-axis-labels bar-labels">
+                            <span>Corte</span><span>Manicure</span><span>Maquillaje</span><span>Otros</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

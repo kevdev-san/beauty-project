@@ -1,0 +1,149 @@
+/* Estilo general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #237586;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+#Keracao {
+    font-family: Heebo, Arial, sans-serif;
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+/* Contenedor principal */
+#container {
+    background-color: #000;
+    color: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 50px 40px;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border: 3px solid #2794AA;
+}
+
+/* Icono de usuario */
+.icono {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+/* Título */
+#container h2 {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+/* Mensaje de bienvenida */
+.mensaje {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.mensaje p {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+.rayo {
+    width: 20px;
+    height: auto;
+}
+
+/* Formulario */
+form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    font-weight: normal;
+    color: #2794AA;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="password"]::placeholder {
+    color: #999;
+}
+
+/* Botón */
+button {
+    width: 100%;
+    background-color: #2794AA;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #218e9c;
+}
+
+/* Enlace de login */
+.login {
+    color: #ccc;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.login a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
+

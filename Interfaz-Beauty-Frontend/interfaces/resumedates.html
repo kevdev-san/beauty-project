@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal del Salón</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #fff5f7 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #ff69b4;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            color: #ffb3d9;
+            font-size: 14px;
+        }
+
+        .greeting-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .greeting-card h2 {
+            font-size: 24px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .greeting-card .date {
+            color: #999;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .appointments-count {
+            background: linear-gradient(135deg, #ff69b4, #ff85c1);
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .citas-label {
+            font-size: 11px;
+            color: #ff69b4;
+            text-align: right;
+            margin-top: 5px;
+        }
+
+        .appointment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .time-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .clock-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ffe6f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .time {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .details-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 4px;
+        }
+
+        .detail-value {
+            font-size: 13px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .icon {
+            margin-right: 5px;
+            font-size: 14px;
+        }
+
+        .client-icon {
+            color: #ff69b4;
+        }
+
+        .service-icon {
+            color: #ff69b4;
+        }
+
+        .duration-icon {
+            color: #ff69b4;
+        }
+
+        .status-badge {
+            background: linear-gradient(135deg, #ff69b4, #ff85c1);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .status-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .status-pending {
+            background: linear-gradient(135deg, #ffa07a, #ffb399);
+        }
+
+        @media (max-width: 640px) {
+            .details-section {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .appointment-card {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .status-badge {
+                justify-self: start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Personal del Salón</h1>
+            <p>Resumen de citas de hoy</p>
+        </div>
+
+        <div class="greeting-card">
+            <div>
+                <h2>Hola, Sofía Ramírez</h2>
+                <div class="date">Viernes, 31 De Octubre De 2025</div>
+            </div>
+            <div>
+                <div class="appointments-count">5</div>
+                <div class="citas-label">Citas Hoy</div>
+            </div>
+        </div>
+
+        <div class="appointment-card">
+            <div class="time-section">
+                <div class="clock-icon">🕘</div>
+                <div class="time">09:00 AM</div>
+            </div>
+            <div class="details-section">
+                <div class="detail-item">
+                    <div class="detail-label">Cliente</div>
+                    <div class="detail-value"><span class="icon client-icon">👤</span>María González</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Servicio</div>
+                    <div class="detail-value"><span class="icon service-icon">✂️</span>Corte y Peinado</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duración</div>
+                    <div class="detail-value"><span class="icon duration-icon">⏱️</span>1h</div>
+                </div>
+            </div>
+            <div class="status-badge">✓ Confirmado</div>
+        </div>
+
+        <div class="appointment-card">
+            <div class="time-section">
+                <div class="clock-icon">🕙</div>
+                <div class="time">10:30 AM</div>
+            </div>
+            <div class="details-section">
+                <div class="detail-item">
+                    <div class="detail-label">Cliente</div>
+                    <div class="detail-value"><span class="icon client-icon">👤</span>Ana Martínez</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Servicio</div>
+                    <div class="detail-value"><span class="icon service-icon">✂️</span>Tinte Completo</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duración</div>
+                    <div class="detail-value"><span class="icon duration-icon">⏱️</span>2h</div>
+                </div>
+            </div>
+            <div class="status-badge">✓ Confirmado</div>
+        </div>
+
+        <div class="appointment-card">
+            <div class="time-section">
+                <div class="clock-icon">🕐</div>
+                <div class="time">01:00 PM</div>
+            </div>
+            <div class="details-section">
+                <div class="detail-item">
+                    <div class="detail-label">Cliente</div>
+                    <div class="detail-value"><span class="icon client-icon">👤</span>Laura Rodríguez</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Servicio</div>
+                    <div class="detail-value"><span class="icon service-icon">💅</span>Manicure y Pedicure</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duración</div>
+                    <div class="detail-value"><span class="icon duration-icon">⏱️</span>1.5h</div>
+                </div>
+            </div>
+            <div class="status-badge status-pending">⏳ Pendiente</div>
+        </div>
+
+        <div class="appointment-card">
+            <div class="time-section">
+                <div class="clock-icon">🕐</div>
+                <div class="time">01:00 PM</div>
+            </div>
+            <div class="details-section">
+                <div class="detail-item">
+                    <div class="detail-label">Cliente</div>
+                    <div class="detail-value"><span class="icon client-icon">👤</span>Laura Rodríguez</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Servicio</div>
+                    <div class="detail-value"><span class="icon service-icon">💅</span>Manicure y Pedicure</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duración</div>
+                    <div class="detail-value"><span class="icon duration-icon">⏱️</span>1.5h</div>
+                </div>
+            </div>
+            <div class="status-badge status-pending">⏳ Pendiente</div>
+        </div>
+
+        <div class="appointment-card">
+            <div class="time-section">
+                <div class="clock-icon">🕒</div>
+                <div class="time">03:00 PM</div>
+            </div>
+            <div class="details-section">
+                <div class="detail-item">
+                    <div class="detail-label">Cliente</div>
+                    <div class="detail-value"><span class="icon client-icon">👤</span>Carmen López</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Servicio</div>
+                    <div class="detail-value"><span class="icon service-icon">✂️</span>Tratamiento Capilar</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duración</div>
+                    <div class="detail-value"><span class="icon duration-icon">⏱️</span>1h</div>
+                </div>
+            </div>
+            <div class="status-badge">✓ Confirmado</div>
+        </div>
+
+        <div class="appointment-card">
+            <div class="time-section">
+                <div class="clock-icon">🕓</div>
+                <div class="time">04:30 PM</div>
+            </div>
+            <div class="details-section">
+                <div class="detail-item">
+                    <div class="detail-label">Cliente</div>
+                    <div class="detail-value"><span class="icon client-icon">👤</span>Isabel Fernández</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Servicio</div>
+                    <div class="detail-value"><span class="icon service-icon">🎨</span>Corte y Color</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duración</div>
+                    <div class="detail-value"><span class="icon duration-icon">⏱️</span>2h</div>
+                </div>
+            </div>
+            <div class="status-badge">✓ Confirmado</div>
+        </div>
+    </div>
+</body>
+</html>

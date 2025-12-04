@@ -1,0 +1,187 @@
+
+/* 1. Importar la fuente Hedvig Letters Serif */
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap');
+
+/* 2. Variables de Color */
+:root {
+
+    --color-primary-pink: #EF73B9;   
+    --color-background-header: #FFAADA; 
+    
+    --color-text-dark: #000; 
+    --color-text-light: #fff;
+    --color-font: 'Hedvig Letters Serif', serif;
+    --font-satisfaction: 'Konkhmer Sleokchher', serif;
+}
+
+/* 3. Reset y Aplicación de Tipografía */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--color-font); 
+    color: var(--color-text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+/* 1. Reset Básico y Tipografía */
+body {
+    font-family: var(--font-satisfaction);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f8f8; /* Fondo de respaldo */
+}
+
+/* 2. Estilo del Contenedor de Fondo (Simula la imagen) */
+.background-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: var(--color-background-header);
+
+}
+
+.background-image {
+    position: absolute; /* Posiciona la imagen libremente */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Simula background-size: cover (Cubre el contenedor sin deformarse) */
+    z-index: 0; /* Asegura que esté en la capa más baja */
+    opacity: 0.5;
+}
+
+.background-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+}
+
+/* 3. Estilo de la Tarjeta de Confirmación */
+.confirmation-card {
+    position: relative; 
+    z-index: 2; 
+    background-color: white;
+    padding: 40px;
+    border-radius: 25px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 550px;
+    width: 90%;
+}
+
+/* 4. Icono de Check */
+.check-icon-container {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.check-png-icono {
+    max-width: 70%; 
+    max-height: 70%;
+    object-fit: contain; 
+    display: block; 
+}
+
+/* 5. Títulos y Subtítulos */
+.title {
+    color:var(--color-text-dark);
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 0px;
+    font-family: var(--font-satisfaction);
+}
+
+.subtitle {
+    color: var(--color-text-dark);
+    font-family: var(--color-font);
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* 6. Contenedor de Detalles */
+.details-container {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start; /* Alinea el icono y el texto al inicio */
+    margin-bottom: 15px;
+}
+
+.detail-svg-icon {
+    fill: var(--color-text-dark); 
+    height: 20px; 
+    width: 20px; 
+    width: 30px; 
+    margin-top: 2px;
+}
+
+.text-group {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.label {
+    color: var(--color-text-dark);
+    font-family: var(--color-font);
+    font-size: 14px;
+    margin-bottom: 10px;
+    
+}
+
+.value {
+    color:var(--color-text-dark);
+    font-weight: 100px;
+    font-size: 16px;
+    margin-bottom: 9px;
+}
+
+/* 7. Botón de Continuar */
+.continue-button {
+    background-color: var(--color-primary-pink); /* Rosa fuerte */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; 
+    max-width: 250px; 
+}
+
+.continue-button:hover {
+    background-color: var(--color-background-header); 
+}

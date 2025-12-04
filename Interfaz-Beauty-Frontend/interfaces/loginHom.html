@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="../css/loginHom.css">
+</head>
+<body>
+    <h2 id="Keracao">KERACAO STUDIO</h2>
+    <div id="container">
+        <img src="../img/icono1.svg" alt="icono" class="icono">
+        <h2>¡Bienvenido!</h2>
+        
+        <div class="mensaje">
+            <p>
+                Bienvenido de nuevo a Keracao Studio,<br>
+                tu espacio de cuidado masculino
+            </p>
+            <img src="../img/crown1.svg" alt="Corona">
+        </div>
+
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required placeholder="*******">
+            </div>
+            
+            <button type="submit">Iniciar Sesión</button>
+            
+            <p class="registro">¿No tienes cuenta? <a href="registerHom.html">Regístrate aquí</a></p>
+        </form>
+    </div>
+</body>
+<script>
+document.querySelector("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const datos = { email, password };
+
+    try {
+        const respuesta = await fetch("http://127.0.0.1:8000/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(datos)
+        });
+
+        const data = await respuesta.json();
+        console.log(data);
+
+        if (respuesta.ok) {
+            // Guarda el token que regresó tu backend
+            localStorage.setItem("token", data.token);
+
+            alert("Inicio de sesión exitoso");
+
+            // ========== SISTEMA DE REDIRECCIÓN ==========
+            // Verificar si hay una página de redirección guardada
+            const redirectUrl = sessionStorage.getItem('redirect_after_login');
+            
+            // También verificar parámetro URL como respaldo
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlRedirect = urlParams.get('redirect');
+            
+            // Limpiar sessionStorage
+            sessionStorage.removeItem('redirect_after_login');
+            
+            // Redirigir a la página apropiada (por defecto a PagPrincipalHombre.html)
+            window.location.href = redirectUrl || urlRedirect || "PagPrincipalHombre.html";
+            // ==========================================
+        } else {
+            alert("Error: " + (data.message || "Credenciales incorrectas"));
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Error al conectar con la API");
+    }
+});
+</script>
+</html>

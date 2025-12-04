@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completa tu membresía - Keracao Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #2AA6B6;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Grid principal */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+        }
+
+        /* Sección de planes */
+        .plans-section {
+            background: #000;
+            border: 2px solid #2AA6B6;
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .step-indicator {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #2AA6B6;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .step-circle.inactive {
+            background: #1A1A1A;
+            color: #555;
+            border: 2px solid #333;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: white;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        /* Plan cards */
+        .plan-card {
+            border: 2px solid #333;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #000;
+        }
+
+        .plan-card:hover {
+            border-color: #2AA6B6;
+            background: #0A1A1D;
+        }
+
+        .plan-card.selected {
+            border-color: #2AA6B6;
+            background: #0A1A1D;
+            border-width: 3px;
+        }
+
+        .plan-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .plan-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #2AA6B6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .plan-card:not(.selected) .plan-icon {
+            background: #1A1A1A;
+            border: 2px solid #333;
+            color: #666;
+        }
+
+        .plan-details h3 {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .plan-details p {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .plan-right {
+            text-align: right;
+        }
+
+        .plan-price {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .plan-period {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Botón continuar */
+        .continue-btn {
+            width: 100%;
+            padding: 15px;
+            background: #2AA6B6;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(42, 166, 182, 0.4);
+            background: #238A96;
+        }
+
+        /* Resumen de compra */
+        .summary-section {
+            background: #000;
+            border: 2px solid #2AA6B6;
+            border-radius: 20px;
+            padding: 30px;
+            height: fit-content;
+        }
+
+        .summary-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .summary-plan {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
+            margin-bottom: 20px;
+        }
+
+        .summary-plan-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #2AA6B6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .summary-plan-details h4 {
+            font-size: 16px;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .summary-plan-details p {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .benefits-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .benefits-list li {
+            font-size: 13px;
+            color: #BBB;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2AA6B6;
+            font-weight: bold;
+        }
+
+        .price-breakdown {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .price-row.total {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #333;
+        }
+
+        .price-row.total .amount {
+            color: #2AA6B6;
+            font-size: 24px;
+        }
+
+        .subscribe-btn {
+            width: 100%;
+            padding: 15px;
+            background: #2AA6B6;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .subscribe-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(42, 166, 182, 0.4);
+            background: #238A96;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Completa tu membresía</h1>
+            <p>Estás a un paso de disfrutar beneficios exclusivos</p>
+        </div>
+
+        <div class="main-grid">
+            <!-- Sección de planes -->
+            <div class="plans-section">
+                <div class="step-indicator">
+                    <div class="step-circle">1</div>
+                    <div class="step-circle inactive">2</div>
+                </div>
+
+                <h2 class="section-title">1. Selecciona tu plan</h2>
+
+                <div class="plan-card" onclick="selectPlan(this, 'Esencial', 70, 4)">
+                    <div class="plan-left">
+                        <div class="plan-icon">⭐</div>
+                        <div class="plan-details">
+                            <h3>Esencial</h3>
+                            <p>4 beneficios incluidos</p>
+                        </div>
+                    </div>
+                    <div class="plan-right">
+                        <div class="plan-price">$70</div>
+                        <div class="plan-period">al mes</div>
+                    </div>
+                </div>
+
+                <div class="plan-card selected" onclick="selectPlan(this, 'Glamour', 200, 5)">
+                    <div class="plan-left">
+                        <div class="plan-icon">✨</div>
+                        <div class="plan-details">
+                            <h3>Glamour</h3>
+                            <p>5 beneficios incluidos</p>
+                        </div>
+                    </div>
+                    <div class="plan-right">
+                        <div class="plan-price">$200</div>
+                        <div class="plan-period">al mes</div>
+                    </div>
+                </div>
+
+                <div class="plan-card" onclick="selectPlan(this, 'Luxury', 500, 6)">
+                    <div class="plan-left">
+                        <div class="plan-icon">💎</div>
+                        <div class="plan-details">
+                            <h3>Luxury</h3>
+                            <p>6 beneficios incluidos</p>
+                        </div>
+                    </div>
+                    <div class="plan-right">
+                        <div class="plan-price">$500</div>
+                        <div class="plan-period">al mes</div>
+                    </div>
+                </div>
+
+                <button class="continue-btn">Continuar</button>
+            </div>
+
+            <!-- Resumen de compra -->
+            <div class="summary-section">
+                <h3 class="summary-title">Resumen de compra</h3>
+
+                <div class="summary-plan">
+                    <div class="summary-plan-icon">✨</div>
+                    <div class="summary-plan-details">
+                        <h4 id="selected-plan-name">Glamour</h4>
+                        <p id="selected-plan-type">Membresía mensual</p>
+                    </div>
+                </div>
+
+                <div class="benefits-title">Beneficios incluidos:</div>
+                <ul class="benefits-list" id="benefits-list">
+                    <li>2 cortes al mes</li>
+                    <li>2 peinados</li>
+                    <li>1 maquillaje</li>
+                    <li>25% descuento en productos</li>
+                    <li>Reserva prioritaria</li>
+                </ul>
+
+                <div class="price-breakdown">
+                    <div class="price-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$200.00</span>
+                    </div>
+                    <div class="price-row">
+                        <span>IVA (16%)</span>
+                        <span id="iva">$32.00</span>
+                    </div>
+                    <div class="price-row total">
+                        <span>Total</span>
+                        <span class="amount" id="total">$232.00</span>
+                    </div>
+                </div>
+
+                <button class="subscribe-btn">Suscribirme (Solicitar por WhatsApp)</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const planBenefits = {
+            'Esencial': [
+                '1 corte al mes',
+                '1 afeitado',
+                '15% descuento en productos',
+                'Reserva con 24h de anticipación'
+            ],
+            'Glamour': [
+                '2 cortes al mes',
+                '2 afeitados',
+                '1 tratamiento capilar',
+                '25% descuento en productos',
+                'Reserva prioritaria'
+            ],
+            'Luxury': [
+                '3 cortes al mes',
+                '3 afeitados',
+                '2 tratamientos capilares',
+                '1 masaje capilar',
+                '35% descuento en productos',
+                'Reserva VIP prioritaria'
+            ]
+        };
+
+        function selectPlan(element, name, price, benefits) {
+            document.querySelectorAll('.plan-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            element.classList.add('selected');
+            
+            document.getElementById('selected-plan-name').textContent = name;
+            
+            const benefitsList = document.getElementById('benefits-list');
+            benefitsList.innerHTML = '';
+            planBenefits[name].forEach(benefit => {
+                const li = document.createElement('li');
+                li.textContent = benefit;
+                benefitsList.appendChild(li);
+            });
+            
+            const subtotal = price;
+            const iva = subtotal * 0.16;
+            const total = subtotal + iva;
+            
+            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('iva').textContent = `$${iva.toFixed(2)}`;
+            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

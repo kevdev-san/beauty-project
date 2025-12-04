@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Citas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/styleMisCitas.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Mis Citas</h1>
+    </header>
+    
+    <main class="container">
+        <p class="greeting">Hola, Sofia. Estas son las citas que agendaste</p>
+
+        <section class="appointment-card" data-appointment-id="1">
+            <div class="card-header">
+                <h2 class="service-title">Corte de Cabello</h2>
+                <span class="status confirmed">Confirmada</span>
+            </div>
+            
+            <div class="card-details">
+                <ul class="details-list">
+                    <li> <img src="../img/fecha.png" alt="Icono Calendario" class="detail-icon"><span class="detail-label">Fecha:</span> Lunes, 10 de noviembre de 2025</li>
+                    <li><img src="../img/hour.png" alt="Icono Hora" class="detail-icon"> <span class="detail-label">Hora:</span> 10:00 AM</li>
+                    <li><img src="../img/duracion.png" alt="Icono Duracion" class="detail-icon"> <span class="detail-label">Duración:</span> 45 min</li>
+                </ul>
+                <ul class="details-list">
+                    <li><img src="../img/atiende.png" alt="Icono Atiende" class="detail-icon"> <span class="detail-label">Estilista:</span> Maria González</li>
+                    <li><img src="../img/money.png" alt="Icono Money" class="detail-icon"> <span class="detail-label">Precio:</span> $350</li>
+                </ul>
+            </div>
+            
+            <div class="card-actions">
+                <button class="btn btn-primary" data-action="modify">Modificar Cita</button>
+                <button class="btn btn-secondary" data-action="cancel">Cancelar Cita</button>
+            </div>
+        </section>
+
+        <section class="appointment-card" data-appointment-id="2">
+            <div class="card-header">
+                <h2 class="service-title">Tinte + Corte</h2>
+                <span class="status confirmed">Confirmada</span>
+            </div>
+            
+            <div class="card-details">
+                <ul class="details-list">
+                    <li><img src="../img/fecha.png" alt="Icono Calendario" class="detail-icon"> <span class="detail-label">Fecha:</span> Lunes, 10 de noviembre de 2025</li>
+                    <li><img src="../img/hour.png" alt="Icono Hora" class="detail-icon"> <span class="detail-label">Hora:</span> 2:00 PM</li>
+                    <li><img src="../img/duracion.png" alt="Icono Duracion" class="detail-icon"> <span class="detail-label">Duración:</span> 2 hrs</li>
+                </ul>
+                <ul class="details-list">
+                    <li><img src="../img/atiende.png" alt="Icono Atiende" class="detail-icon"> <span class="detail-label">Estilista:</span> Ana Martinez</li>
+                    <li><img src="../img/money.png" alt="Icono Money" class="detail-icon">  <span class="detail-label">Precio:</span> $850</li>
+                </ul>
+            </div>
+            
+            <div class="card-actions">
+                <button class="btn btn-primary" data-action="modify">Modificar Cita</button>
+                <button class="btn btn-secondary" data-action="cancel">Cancelar Cita</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-modificar" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Modificar Cita</h3>
+                <span class="close-btn" data-modal="modal-modificar">&times;</span>
+            </div>
+            <p class="modal-subtitle">Actualiza los detalles de tu cita</p>
+            
+            <form class="modal-form">
+                <label for="fecha">Fecha</label>
+                <input type="date" id="fecha" value="2025-11-10" class="input-date"> 
+
+                <label for="hora">Hora</label>
+                <select id="hora" class="input-select">
+                    <option value="9:00 AM">9:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="1:00 PM">1:00 PM</option>
+                    <option value="2:00 PM" selected>2:00 PM</option>
+                    <option value="3:00 PM">3:00 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                    <option value="5:00 PM">5:00 PM</option>
+                    <option value="6:00 PM">6:00 PM</option>
+                </select>
+
+                <label for="servicio">Servicio</label>
+                <select id="servicio" class="input-select">
+                    <option value="Tinte + Corte" selected>Tinte + Corte</option>
+                    <option value="Corte de Cabello">Corte de Cabello</option>
+                    <option value="Peinado Básico">Peinado Básico</option>
+                    <option value="Manicure">Manicure</option>
+                    <option value="Pedicure">Pedicure</option>
+                    <option value="Tratamiento Capilar">Tratamiento Capilar</option>
+                </select>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-tertiary" data-modal="modal-modificar">Cancelar</button>
+                    <button type="submit" class="btn btn-primary-alt">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-cancelar" class="modal">
+        <div class="modal-content">
+            <div class="modal-header header-cancel">
+                <span class="icon-warning">!</span>
+                <h3>Cancelar Cita</h3>
+                <span class="close-btn" data-modal="modal-cancelar">&times;</span>
+            </div>
+            <p class="modal-subtitle">¿Estás seguro de que deseas cancelar esta cita?</p>
+            
+            <div class="cancellation-details" id="details-to-cancel">
+                <p>Servicio: **Corte de Cabello**</p>
+                <p>Fecha: **14/1/2024**</p>
+                <p>Hora: **10:00 AM**</p>
+                <p>Estilista: **Maria González**</p>
+            </div>
+            
+            <p class="warning-text">Esta acción no se puede deshacer. Si cancelas con menos de 24 horas de anticipación, podría aplicarse una penalización.</p>
+
+            <div class="modal-actions">
+                <button type="button" class="btn btn-tertiary-alt" data-modal="modal-cancelar">No, mantener cita</button>
+                <button type="button" class="btn btn-danger">Sí, cancelar cita</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Función para obtener la información de una cita específica del DOM
+function getAppointmentDetails(cardElement) {
+    const service = cardElement.querySelector('.service-title').textContent;
+    
+    // Obtener todas las etiquetas <li> que contienen la información
+    const detailsListItems = cardElement.querySelectorAll('.details-list li');
+    let date = '', time = '', stylist = '';
+    
+    // Iterar sobre los <li> para encontrar los detalles
+    detailsListItems.forEach(li => {
+        const labelElement = li.querySelector('.detail-label');
+        if (labelElement) {
+            const labelText = labelElement.textContent.trim();
+            const fullText = li.textContent.trim();
+
+            if (labelText.includes('Fecha:')) {
+                // Extraer el texto después de la etiqueta "Fecha:"
+                date = fullText.split('Fecha:')[1].trim();
+            } else if (labelText.includes('Hora:')) {
+                time = fullText.split('Hora:')[1].trim();
+            } else if (labelText.includes('Estilista:')) {
+                stylist = fullText.split('Estilista:')[1].trim();
+            }
+        }
+    });
+
+    // Formatear la fecha para el modal de Cancelar (e.g., "14/1/2024")
+    let formattedDate = 'N/A';
+    if (date.includes(',')) {
+        // Asume formato: "Domingo, 14 de enero de 2024"
+        const parts = date.split(',')[1].trim().split(' de '); 
+        if (parts.length === 3) {
+            const day = parts[0];
+            const monthMap = {
+                'enero': '1', 'febrero': '2', 'marzo': '3', 'abril': '4',
+                'mayo': '5', 'junio': '6', 'julio': '7', 'agosto': '8',
+                'septiembre': '9', 'octubre': '10', 'noviembre': '11', 'diciembre': '12'
+            };
+            const month = monthMap[parts[1].toLowerCase()];
+            const year = parts[2];
+            formattedDate = `${day}/${month}/${year}`;
+        }
+    } else {
+        formattedDate = date; 
+    }
+    
+    return {
+        service: service,
+        date: formattedDate,
+        time: time,
+        stylist: stylist
+    };
+}
+
+// Función para abrir un modal
+function openModal(modalId, details = null) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        // Si es el modal de cancelar, inyectar los detalles
+        if (modalId === 'modal-cancelar' && details) {
+            const detailsContainer = document.getElementById('details-to-cancel');
+            detailsContainer.innerHTML = `
+                <p>Servicio: <strong>${details.service}</strong></p>
+                <p>Fecha: <strong>${details.date}</strong></p>
+                <p>Hora: <strong>${details.time}</strong></p>
+                <p>Estilista: <strong>${details.stylist}</strong></p>
+            `;
+        }
+        modal.style.display = "block";
+    }
+}
+
+// Función para cerrar un modal
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Inicializar la lógica de los botones al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Asignar eventos a los botones de "Modificar Cita" y "Cancelar Cita"
+    document.querySelectorAll('.appointment-card button').forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.closest('.appointment-card');
+            const action = button.getAttribute('data-action');
+            const details = getAppointmentDetails(card);
+
+            if (action === 'modify') {
+                openModal('modal-modificar');
+            } else if (action === 'cancel') {
+                openModal('modal-cancelar', details);
+            }
+        });
+    });
+
+    // Asignar eventos a los botones de cierre ('x') y 'Cancelar/Mantener cita'
+    document.querySelectorAll('.close-btn, .btn-tertiary, .btn-tertiary-alt').forEach(element => {
+        element.addEventListener('click', (event) => {
+            const modalId = event.currentTarget.getAttribute('data-modal');
+            if (modalId) {
+                closeModal(modalId);
+            }
+        });
+    });
+    
+    // Cerrar el modal si el usuario hace clic fuera de él
+    window.addEventListener('click', (event) => {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+        }
+    });
+
+});
+
+// ... (código JavaScript existente)
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ... (Inicialización de la lógica de los botones existente)
+
+    // --- NUEVA LÓGICA DE RESTRICCIÓN DE FECHA ---
+    const dateInput = document.getElementById('fecha');
+
+    if (dateInput) {
+        // Obtener la fecha actual en formato YYYY-MM-DD (requerido por input type="date")
+        const today = new Date();
+        const year = today.getFullYear();
+        // Los meses en JS son de 0 a 11, por eso se suma 1
+        const month = String(today.getMonth() + 1).padStart(2, '0'); 
+        const day = String(today.getDate()).padStart(2, '0');
+        
+        const todayDateString = `${year}-${month}-${day}`;
+
+        // Establecer el atributo 'min' para que no se puedan seleccionar fechas anteriores
+        dateInput.setAttribute('min', todayDateString);
+        
+        // Opcional: Establecer el valor inicial al día actual si no quieres usar el valor estático '2024-11-06'
+        // dateInput.value = todayDateString;
+    }
+});
+</script>
+</body>
+</html>

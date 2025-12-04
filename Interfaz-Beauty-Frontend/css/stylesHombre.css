@@ -1,0 +1,889 @@
+/* ============================================== */
+/* 0. CONFIGURACIÓN INICIAL (TIPOGRAFÍA Y COLORES) */
+/* ============================================== */
+
+/* 1. Importar la fuente Hedvig Letters Serif */
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap');
+
+/* 2. Variables de Color */
+:root {
+    --color-primary-blue: #1B7182;    
+    --color-background-header: #2794AA; 
+    --color-background-black: #000;
+    
+    --color-text-dark: #000; 
+    --color-text-light: #fff;
+    --color-font: 'Hedvig Letters Serif', serif;
+    --font-satisfaction: 'Konkhmer Sleokchher', serif;
+}
+
+/* 3. Reset y Aplicación de Tipografía */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--color-font); 
+    color: var(--color-text-dark);
+    background-color: var(--color-background-black);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+/* ============================================== */
+/* 1. BARRA DE NAVEGACIÓN (NAVBAR/HEADER) */
+/* ============================================== */
+.main-header {
+    background-color: var(--color-background-black); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--color-background-header);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px; 
+    margin: 0 auto;
+    padding: 15px 30px;
+    height: 80px; 
+    border-bottom: var(--color-background-header);
+
+
+}
+
+/* --- Área del Logo (IMAGEN COMPLETA) --- */
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 170px; 
+    height: auto;
+}
+
+/* --- Enlaces Centrales (Servicios, Cursos...) --- */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    font-size: 1.1em;
+    font-weight: 590;
+}
+
+.nav-links a {
+    padding: 5px 0;
+    color: var(--color-text-light);
+}
+
+
+/* --- Acciones de Usuario (Derecha) --- */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Estilo general de los botones */
+.btn-primary, .btn-secondary {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 15px; 
+    font-weight: 300;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em;
+}
+
+/* Botón Iniciar Sesión */
+.btn-primary {
+    background-color: var(--color-background-header); 
+    color: var(--color-text-light); 
+}
+
+/* Botón Hombre (Con el ícono de tijeras) */
+.btn-secondary {
+    background-color: var(--color-background-header); 
+    color: var(--color-text-light); 
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 8px 20px;
+}
+
+.icon-star {
+    font-size: 1.2em;
+    color: white;
+}
+
+/* ============================================== */
+/* 2. RESPONSIVE DESIGN (AJUSTE COMPACTO HORIZONTAL) */
+/* ============================================== */
+
+@media (max-width: 1024px) {
+    
+    .navbar {
+        max-width: 100%; 
+        padding: 10px 15px; 
+    }
+
+    /* 2. Logo */
+    .logo-img {
+        width: 130px; /* Reducción de tamaño */
+    }
+
+    /* 3. Enlaces Centrales: Reducir espacio entre ellos y tamaño de fuente */
+    .nav-links {
+        gap: 15px;
+        font-size: 0.9em; 
+        white-space: nowrap; 
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 8px 12px; 
+        font-size: 0.85em;
+        gap: 5px; /* Reducir el espacio interno con el ícono */
+    }
+}
+
+/* Media Query: Aplica de 768px hacia abajo (Móviles grandes) */
+@media (max-width: 768px) {
+    
+    /* 1. Logo: Reducción máxima antes de que se vea mal */
+    .logo-img {
+        width: 100px; 
+    }
+    
+    /* 2. Enlaces Centrales: Mínima separación */
+    .nav-links {
+        gap: 5px; /* MÍNIMO ESPACIO */
+        font-size: 0.8em; 
+    }
+    
+    /* 3. Botones: Tamaño súper compacto */
+    .btn-primary, .btn-secondary {
+        padding: 5px 8px; 
+        font-size: 0.75em;
+    }
+}
+
+@media (max-width: 580px) {
+    /* 1. Permitimos el apilamiento */
+    .navbar {
+        flex-wrap: wrap; 
+        justify-content: center; /* Centramos elementos */
+        gap: 8px; /* Espacio entre las líneas */
+        padding: 5px 10px;
+    }
+    
+    /* 2. Los enlaces centrales se van abajo y ocupan todo el ancho */
+    .nav-links {
+        width: 100%; 
+        justify-content: space-around; /* Distribuye el espacio */
+        order: 2; 
+        margin-top: 5px;
+        padding-top: 5px;
+        border-top: 1px solid #f0f0f0; /* Línea separadora */
+    }
+    
+    /* 3. Logo y Botones se mantienen en la línea superior */
+    .logo-area {
+        order: 0;
+    }
+    .user-actions {
+        order: 1; 
+    }
+}
+
+/* ============================================== */
+/* 3. ESTILOS DE LA SECCIÓN PRINCIPAL (HERO) */
+/* ============================================== */
+.hero-section {
+    position: relative;
+    background-color: var(--color-background-black);
+    padding: 30px 0; /* Padding vertical */
+}
+
+.hero-container {
+    display: flex; /* Habilitamos Flexbox para las columnas */
+    justify-content: space-between;
+    align-items: center; /* Centrado vertical de las columnas */
+    max-width: 1280px; 
+    margin: 0 auto;
+    min-height: 550px; /* Altura mínima similar al diseño */
+}
+
+/* --- Columna Izquierda: Contenido --- */
+.hero-content {
+    /* Ocupa el 45% del espacio */
+    flex: 0 0 45%; 
+    padding-left: 30px; /* Separación del borde */
+    color: var(--color-text-light); 
+}
+
+.hero-content h1 {
+    font-size: 3.7em; 
+    margin-top: 50px;
+    margin-bottom: 50px;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+.title-wrapper {
+    /* Usamos Flexbox para asegurar que las líneas estén apiladas */
+    display: flex;
+    flex-direction: column;
+    /* Ajuste de espacio entre las dos líneas */
+    gap: 0; 
+}
+
+.line-1 {
+    color: var(--color-text-light); 
+    /* Alineamos el texto de esta línea al centro de su contenedor */
+    text-align: left;
+    width: 100%; 
+    margin-bottom: 20px;
+}
+
+.line-2 {
+    color: var(--color-text-light); 
+    text-align: left; 
+
+}
+
+.line-2 .pink-word {
+    color: var(--color-primary-blue); 
+}
+
+
+
+.hero-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 80px;
+}
+
+.hero-actions .btn-primary {
+    padding: 15px 30px; 
+    font-size: 1.1em;
+    width: auto; 
+}
+
+/* Botón 'Ver Servicios' (btn-ghost) */
+.btn-ghost {
+    background-color: transparent;
+    border: 3px solid var(--color-background-header);
+    color: var(--color-text-light);
+    padding: 15px 30px;
+    border-radius: 15px; 
+    font-weight: 300;
+    font-size: 1.1em;
+}
+
+.rating-stars {
+    /* Separación de los botones */
+    margin-top: 70px; 
+    font-size: 2.5em; 
+    color: var(--color-text-light); 
+}
+
+.satisfaction-badge {
+    position: absolute;
+    bottom: -30px; 
+    right: 0px;
+    
+    /* Estilo del badge */
+    background-color: var(--color-background-header); 
+    color: var(--color-text-light); 
+    
+    padding: 45px 45px;
+    border-radius: 50px; /* Borde muy redondeado */
+
+    font-family: var(--font-satisfaction);
+    font-size: 1.8em;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+    
+}
+
+
+
+/* --- Columna Derecha: Imagen --- */
+.hero-image-area {
+    position:relative;
+    flex: 0 0 60%;
+    height: 550px; /* La altura de la imagen coincide con la altura de la sección */
+    overflow: hidden; /* Ocultamos cualquier desbordamiento de la imagen */
+    border-radius: 20px;
+}
+@media (max-width: 1024px) {
+    /* Ajustamos el badge cuando se apila el contenido */
+    .satisfaction-badge {
+        left: 50%;
+        transform: translateX(-50%); 
+        bottom: 15px; 
+        padding: 12px 20px; 
+        font-size: 1em;
+    }
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    border-radius: 20px;
+}
+
+/* ============================================== */
+/* 4. SECCIÓN DE SERVICIOS (TARJETAS) */
+/* ============================================== */
+
+.services-section {
+    padding: 80px 0;
+    background-color: var(--color-background-black); 
+}
+
+/* Contenedor central (para limitar el ancho) */
+.container {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 80px;
+}
+
+/* --- Encabezado de la Sección --- */
+.section-header {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5em; 
+    color: var(--color-text-light); 
+    margin-bottom: 30px;
+
+}
+
+.section-header p {
+    font-size: 1.3em;
+    color: var(--color-text-light);
+}
+
+/* --- Diseño de la Cuadrícula de Servicios --- */
+.services-grid {
+    display: grid;
+    /* 3 columnas de igual ancho */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Espacio entre las tarjetas */
+}
+
+/* --- Estilo de cada Tarjeta (Service Card) --- */
+.service-card {
+    background-color: var(--color-background-black);
+    border-radius: 15px;
+    border: 3.5px solid var(--color-background-header);
+    box-shadow: 0 10px 30px rgba(22, 103, 161, 0.08); 
+    overflow: hidden; 
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Pequeño efecto al pasar el mouse */
+}
+
+.card-img {
+    width: 100%;
+    height: 260px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el área */
+    display: block;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 25px 25px 25px;
+    justify-content: space-between;
+    height: 250px;
+}
+
+.card-content h3 {
+    font-family: var(--font-satisfaction);
+    font-size: 1.5em;
+    color: var(--color-text-light);
+    margin-bottom: 5px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.card-content p {
+    font-size: 1em;
+    color:var(--color-text-light);
+    margin-bottom: 15px;
+    min-height: 40px; /* Asegura que la descripción no mueva el precio si es corta */
+    text-align: center;
+}
+
+
+/* Estilo del Precio */
+.service-price {
+    display: block;
+    font-family: var(--font-satisfaction);
+    font-size: 1.8em;
+    font-weight: 10;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Botón en la Tarjeta */
+.card-btn {
+    width: 100%;
+    padding: 12px 1; 
+    
+    font-size: 1em;
+    text-align: center;
+    margin-top: auto;
+}
+/* ============================================== */
+/* 5. SECCIÓN DE CURSOS PROFESIONALES */
+/* ============================================== */
+
+.courses-section {
+    padding: 80px 0;
+    background-color: var(--color-background-black)
+}
+
+.courses-section .section-header h2 {
+    color: var(--color-text-light); 
+    font-size: 2.5em;
+    
+}
+
+
+
+.courses-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Separación entre las tarjetas */
+    flex-wrap: wrap; 
+    padding-top: 0px; /* Separación del encabezado */
+}
+
+/* --- Estilo de cada Tarjeta de Curso */
+.course-card {
+    background-color:var(--color-background-header);
+    border-radius: 60px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+    max-width: 480px; 
+    width: 100%;
+    position: relative; 
+    overflow: hidden; 
+}
+
+/* --- Área de Información (Contenido interno) --- */
+.course-info {
+    padding: 30px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 100%;
+    position: relative;
+}
+
+/* --- Título y Descripción (Ajuste para la Imagen) --- */
+
+.course-info h3 {
+    margin-right: 170px; 
+    font-size: 1.3em; 
+    color:var(--font-satisfaction); 
+    font-weight: 15; 
+    margin-bottom: 18px;
+    line-height: 1.1;
+    font-family: var(--font-satisfaction);
+    margin-top: 10px;
+}
+
+.course-desc {
+    margin-right: 170px; 
+    font-size: 1.1em;
+    color: var(--font-satisfaction);
+    margin-bottom: 20px;
+}
+
+/* --- Área de la Imagen (Superior derecha) --- */
+.course-image-area {
+    position: absolute;
+    top: 30px; 
+    right: 30px; 
+    width: 140px; 
+    height: 140px; 
+    overflow: hidden;
+    border-radius: 30%; 
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.course-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Lista de Características del Curso --- */
+.course-features {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Permite que la lista ocupe el espacio disponible */
+}
+
+.course-features li {
+    font-size: 1em;
+    margin-bottom: 6px;
+    color: var(--font-satisfaction);
+    padding-left: 1.5em; 
+    position: relative;
+}
+
+.course-features li::before {
+    content: "•"; 
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+}
+
+
+.course-main-price {
+    position: absolute; 
+    bottom: 150px; 
+    right: 50px; 
+    font-size: 2em; 
+    font-weight: 15px;
+    color: var(--font-satisfaction); 
+    z-index: 10;
+    font-family: var(--font-satisfaction);
+}
+
+/* Botón de Inscripción (Centrado horizontalmente) */
+.btn-primary.course-btn {
+    background-color: var(--color-primary-blue); 
+    color: #fff;
+    border-radius: 15px; 
+    padding: 20px 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border: none;
+    width: 60%; 
+    text-align: center;
+    margin: 0 auto 10px auto; 
+    display: block; 
+    font-size: 1.2em;
+}
+
+.btn-primary.course-btn:hover {
+    background-color: #10556a; 
+}
+
+/* ============================================== */
+/* 6. SECCIÓN DE PLANES DE MEMBRESÍA */
+/* ============================================== */
+
+.plans-section {
+    padding: 80px 0 0 0;
+    text-align: center;
+    background-color: var(--color-background-black);
+}
+
+.plans-section .section-header h2 {
+    font-family: var(--color-font) 
+}
+
+.plans-section .section-header p {
+    font-size: 1.3em;
+    color: var(--color-text-light);
+    margin-bottom: 0px;
+}
+
+/* Contenedor de las tarjetas */
+.plans-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px; 
+    flex-wrap: wrap;
+}
+
+/* --- Estilo de cada Tarjeta de Plan --- */
+.plan-card {
+    /* Dimensiones y estilos de la tarjeta */
+    max-width: 310px; 
+    width: 100%;
+    background-color:var(--color-background-black); 
+    border-radius: 40px; /* Bordes redondeados */
+    padding: 5px;
+    
+    border: 3px solid var(--color-background-header); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    
+    position: relative;
+    overflow: hidden;
+}
+
+/* Contenido interno para manejar el espaciado */
+.plan-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px 0;
+}
+
+/* --- Encabezado del Plan (Icono y Título) --- */
+.plan-header {
+    margin-bottom: 30px;
+    color: var(--color-text-light);
+    font-family: var(--color-font);
+}
+
+/* Icono Superior */
+.plan-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-background-black); 
+    border: 3px solid var(--color-background-header); 
+    border-radius: 50%;
+    font-size: 2em; 
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.plan-icon img{
+    width: 30px; 
+    height: 30px; 
+    object-fit: contain; 
+}
+
+
+.plan-header h3 {
+    font-size: 1.5em;
+    color: var(--color-text-light);
+    margin-top: 10px;
+}
+
+/* --- Lista de Características --- */
+.plan-features {
+    list-style: none;
+    padding: 0 30px;
+    text-align: left;
+    margin-bottom: 0px;
+    flex-grow: 1;
+
+}
+
+.plan-features li {
+    font-size: 1em;
+    color: var(--color-text-light);
+    margin-bottom: 10px;
+    /* 🔑 CLAVE: Añadir el punto/viñeta */
+    padding-left: 1em;
+    position:relative;
+}
+
+.plan-features li::before {
+    content: "•"; 
+    color: var(--color-text-light); /* Color oscuro */
+    font-weight: bold;
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+}
+
+/* --- Footer del Plan (Precio y Botón) --- */
+.plan-footer {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plan-price {
+    font-size: 1.7em;
+    color: var(--color-text-light);
+    font-family: var(--font-satisfaction);
+    margin-bottom: 20px;
+}
+
+/* Estilo del botón */
+.btn-primary.plan-btn {
+    background-color: var(--color-background-header); /* Rosa fuerte */
+    color: #fff;
+    border-radius: 30px; 
+    padding: 15px 40px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-weight: 400px;
+    border: none;
+    width: 78%; 
+    text-align: center;
+    display: block;
+}
+
+.btn-primary.plan-btn:hover {
+    background-color: #195c74; 
+}
+
+/* Media Query para dispositivos pequeños */
+@media (max-width: 768px) {
+    .plan-card {
+        padding: 15px;
+    }
+    .plans-list {
+        gap: 20px;
+    }
+}
+
+/* --- Estilo de la Tarjeta al pasar el ratón (Hover Effect) --- */
+.plan-card {
+    /* ... (Propiedades anteriores de .plan-card) ... */
+    
+    /* 🔑 CLAVE: Agregar una transición suave para que el efecto no sea brusco */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.plan-card:hover {
+    /* 1. Alzar la tarjeta: Moverla ligeramente hacia arriba (10px) */
+    transform: translateY(-10px); 
+    
+    /* 2. Aumentar la sombra: Darle más profundidad para simular que está más "alzada" */
+    box-shadow: 0 20px 40px rgba(37, 24, 148, 0.2); 
+    
+    /* Opcional: darle un pequeño efecto de brillo al borde */
+    border: 3px solid #195080; /* Usar el rosa más fuerte */
+}
+
+/* ============================================== */
+/* 7. FOOTER */
+/* ============================================== */
+
+/* Contenedor principal del footer */
+.main-footer {
+    background-color: var(--color-background-header); /* Fondo rosa pastel de tus tarjetas */
+    padding: 0; /* Quitamos padding inicial */
+    margin-top: 100px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 0 80px 0; /* Padding interno del contenido */
+    max-width: 1200px; /* Ancho máximo similar al 'container' */
+    margin: 0 auto;
+    /* Ajuste para que se vea bien en pantallas más pequeñas */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Columnas */
+.footer-col {
+    flex-basis: 25%; /* Ancho base para cada columna */
+    padding: 0 15px;
+}
+
+/* Logo y Texto del Logo */
+.logo-col {
+   /* flex-basis: 30%; /* Le damos más espacio a la columna del logo */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    width: 200px; /* Tamaño del icono 'K' */
+    height: auto;
+    margin-bottom: 0px;
+    margin-top: 45px;
+    margin-left: -50px;
+}
+
+
+
+
+/* Títulos de las Columnas (Empresa y Redes Sociales) */
+.footer-col h4 {
+    font-size: 1.3em;
+    margin-bottom: 25px;
+    font-weight: 100;
+    font-family: var(--font-satisfaction);
+    /* Ajuste para que coincida con el peso de fuente de la imagen */
+}
+
+/* Lista de Enlaces */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+/* Enlaces (Texto) */
+.footer-link {
+    text-decoration: none;
+    font-size: 1.1em;
+    color: var(--color-text-dark); /* Color inicial negro/oscuro */
+    transition: color 0.3s ease; /* 🔑 CLAVE: Transición suave para el color */
+    display: inline-block; /* Permite que el hover sea en todo el texto */
+}
+
+/* --- Efecto HOVER: Cambio de color a gris --- */
+.footer-link:hover {
+    color: #2424ac; /* 🔑 CLAVE: Cambia el color del texto a un tono de gris */
+}
+
+/* Media Query para móvil */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .footer-col {
+        flex-basis: 100%;
+        padding: 0;
+    }
+
+    .logo-col {
+        /* Centrar el logo en móvil si lo deseas, o mantener a la izquierda */
+        align-items: center; 
+    }
+}

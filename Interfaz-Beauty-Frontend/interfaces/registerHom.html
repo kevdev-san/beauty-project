@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Keracao Studio</title>
+    <link rel="stylesheet" href="../css/registerHom.css">
+</head>
+<body>
+    <h2 id="Keracao">KERACAO STUDIO</h2>
+    <div id="container">
+        <img src="../img/icono1.svg" alt="icono" class="icono">
+        <h2>¡Bienvenido!</h2>
+        
+        <div class="mensaje">
+            <p>Crea tu cuenta y lleva tu look al siguiente nivel</p>
+            <img src="../img/rayo1.svg" alt="Rayo" class="rayo">
+        </div>
+
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej. Kevin Baños">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Número telefónico</label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="5555555555">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Crea una contraseña</label>
+                <input type="password" id="password" name="password" required placeholder="*******">
+            </div>
+            
+            <button type="submit">Registrarse</button>
+            
+            <p class="login">¿Ya tienes cuenta? <a href="loginHom.html">Inicia sesión aquí</a></p>
+        </form>
+    </div>
+</body>
+<script>
+document.querySelector("form").addEventListener("submit", async (e) => {
+    e.preventDefault(); // evita que recargue la página
+
+    const nombre = document.getElementById("nombre").value;
+    const email = document.getElementById("email").value;
+    const telefono = document.getElementById("telefono").value;
+    const password = document.getElementById("password").value;
+
+    const datos = {
+        name: nombre,
+        email: email,
+        password: password,
+        phone: telefono
+    };
+
+    try {
+        const respuesta = await fetch("http://127.0.0.1:8000/api/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(datos)
+        });
+
+        const data = await respuesta.json();
+        console.log(data);
+
+        if (respuesta.ok) {
+            alert("Registro exitoso");
+            window.location.href = "login.html";
+        } else {
+            alert("Error: " + (data.message || "No se pudo registrar"));
+        }
+    } catch (error) {
+        console.error(error);
+        alert("Error de conexión con la API");
+    }
+});
+</script>
+</html>
